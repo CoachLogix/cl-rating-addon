@@ -3,4 +3,8 @@
 
 module.exports = {
   name: 'cl-rating-addon'
+
+  isDevelopingAddon: function() {
+    return true;
+  }
 };
