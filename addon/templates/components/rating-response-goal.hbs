@@ -1,1 +1,15 @@
+<span class="rating_goal-prompt">
+	{{model.competency.name}} : {{model.name}}
+</span>
+
+<div class="rating_goal-rating-container">
+	{{#if model.isQualitative}}
+		{{rating-response-goal-qualitative engagement=engagement value=ratingValue}}
+	{{/if}}
+
+	{{#if model.isQuantitative}}
+		{{rating-response-goal-quantitative engagement=engagement value=ratingValue}}
+	{{/if}}
+</div>
+
 {{yield}}

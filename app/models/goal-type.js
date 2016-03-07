@@ -1,0 +1,1 @@
+export { default } from 'cl-rating-addon/models/goal-type';
