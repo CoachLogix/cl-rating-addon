@@ -24,6 +24,7 @@ export default Ember.Component.extend({
 
       goalRatingHash.id = goalComponent.get('model.id');
       goalRatingHash.answer = goalComponent.get('ratingValue');
+      goalRatingHash.answerType = goalComponent.get('ratingType');
 
       goalRatingsArray.pushObject(goalRatingHash);
     });

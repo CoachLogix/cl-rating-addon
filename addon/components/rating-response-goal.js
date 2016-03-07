@@ -8,5 +8,9 @@ export default Ember.Component.extend({
   layout: layout,
 
   classNames: ['rating_response-goal'],
-  
+
+  init: function() {
+    this._super();
+    this.sendAction('registerAction', this);
+  },
 });
