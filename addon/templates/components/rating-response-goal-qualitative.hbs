@@ -1,7 +1,13 @@
-{{textarea value=value placeholder='enter your narrative feedback'}}
+<p class="rating_goal-rating-subtitle md-body-1">
+  Please provide narrative feedback on how {{engagement.coachee.name}} is progressing toward this goal.
+</p>
 
-<span class="rating_goal-rating-subtitle">
-	Please provide narrative feedback on how {{engagement.coachee.name}} is progressing toward this goal.
-</span>
+{{paper-input
+textarea=true
+flex=100
+class="rating_goal-text_input"
+value=value
+onChange=(action (mut value))
+label='Enter your narrative feedback'}}
 
 {{yield}}
