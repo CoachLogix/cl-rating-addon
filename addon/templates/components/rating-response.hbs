@@ -1,21 +1,39 @@
 {{yield}}
 
-<h1 class="rating_response-title">Please provide goal feedback</h1>
+{{#paper-card}}
+  <md-card-title>
+    <span class="md-title">Please provide goal feedback</span>
+  </md-card-title>
 
-<div class="rating_response-details">
-	<div class="list_item">
-		{{#if engagement.coachee.thumbImg}}
-			<img class="list_item-icon" src="{{engagement.coachee.thumbImg}}">
-		{{/if}}
-		<span class="list_item-title">Engagement for {{engagement.coachee.name}}</span>
-		<span class="list_item-subtitle">Coached by {{engagement.coach.name}}</span>
-	</div>
-</div>
+  {{paper-divider}}
 
-<div class="rating_response-container">
-	{{#each goals as |goal|}}
-		{{rating-response-goal model=goal engagement=engagement registerAction='registerGoalComponent'}}
-	{{/each}}
-</div>
+  {{#paper-card-content}}
+    {{#paper-item class="md-2-line"}}
+      {{#if engagement.coachee.thumbImg}}
+        <img class="md-avatar" src="{{engagement.coachee.thumbImg}}">
+      {{/if}}
 
-<button class="rating_response-submit"{{action 'submit'}}>Send Feedback</button>
+      <div class="md-list-item-text">
+        <h3 class="list_item-title">Engagement for {{engagement.coachee.name}}</h3>
+        <h4 class="list_item-subtitle">Coached by {{engagement.coach.name}}</h4>
+      </div>
+    {{/paper-item}}
+
+    {{#paper-list}}
+      {{#each goals as |goal|}}
+        {{rating-response-goal model=goal engagement=engagement registerAction='registerGoalComponent'}}
+      {{/each}}
+    {{/paper-list}}
+  {{/paper-card-content}}
+
+  {{paper-divider}}
+
+  {{#paper-card-content}}
+    <div layout="row" layout-align="end center">
+      {{#paper-button raised=true primary=true onClick=(action 'submit')}}
+        Send feedback
+      {{/paper-button}}
+    </div>
+  {{/paper-card-content}}
+
+{{/paper-card}}
