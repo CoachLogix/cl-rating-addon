@@ -1,19 +1,22 @@
-{{x-slider min=0 max=100 step=1 value=value}}
-<span class="rating_goal-rating-legend">
-	<span>0</span>
-	<span class="pull-right">100</span>
-</span>
+{{x-slider class="slider" min=0 max=100 step=1 value=value}}
+<div class="rating_goal-rating-legend">
+  <span>0</span>
+  <span class="pull-right">100</span>
+</div>
 
-<span class="rating_goal-rating-value">
-	{{#if value}}
-		Your Rating: {{value}}
-	{{else}}
-		Not yet rated
-	{{/if}}
-</span>
+<div class="rating_goal-rating-value">
+  {{#if value}}
+    Your Rating: {{value}}
+  {{else}}
+    Not yet rated
+  {{/if}}
+</div>
 
-<span class="rating_goal-rating-subtitle">
-	Please provide a rating of 0 to 100 indicating how {{engagement.coachee.name}} is progressing toward this goal. 0 indicates no progress toward this goal whereas 100 indicates no further work is needed.
-</span>
+<div class="rating_goal-rating-subtitle">
+  <p class="md-body-1">
+    Please provide a rating of 0 to 100 indicating how {{engagement.coachee.name}} is progressing toward this goal. 0
+    indicates no progress toward this goal whereas 100 indicates no further work is needed.
+  </p>
+</div>
 
 {{yield}}

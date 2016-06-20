@@ -9,8 +9,9 @@ export default Ember.Component.extend({
   ajax: Ember.inject.service(),
   ajaxPending: false,
 
-  engagement: Ember.computed.alias('model.actionObject'),
-  goals: Ember.computed.alias('engagement.goals'),
+  engagement: Ember.computed.alias('model.actionObject.engagement'),
+  goals: Ember.computed.alias('model.actionObject.goals'),
+
   goalComponents: Ember.computed(function() {
     return Ember.A([]);
   }),
