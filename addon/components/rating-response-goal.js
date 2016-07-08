@@ -3,7 +3,7 @@ import layout from '../templates/components/rating-response-goal';
 
 export default Ember.Component.extend({
   ratingValue: null,
-  ratingType: Ember.computed.alias('model.type.slug'),
+  ratingReview: null,
 
   layout: layout,
 

@@ -19,4 +19,16 @@
   </p>
 </div>
 
+<p class="rating_goal-rating-subtitle md-body-1">
+  Please provide narrative feedback on how {{engagement.coachee.name}} is progressing toward this goal.
+</p>
+
+{{paper-input
+textarea=true
+flex=100
+class="rating_goal-text_input"
+value=review
+onChange=(action (mut review))
+label='Enter your narrative feedback'}}
+
 {{yield}}
