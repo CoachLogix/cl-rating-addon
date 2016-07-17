@@ -1,10 +1,14 @@
-{{x-slider class="slider" min=0 max=100 step=1 value=value}}
-<div class="rating_goal-rating-legend">
-  <span>0</span>
-  <span class="pull-right">100</span>
+{{!-- {{x-slider class="slider" min=0 max=100 step=1 value=value}} --}}
+
+{{paper-slider flex=true discrete=true value=value step='1' min='0' max='100'}}
+
+<div layout="row" flex>
+  <span class="md-body-2">0</span>
+  <span flex></span>
+  <span class="md-body-2">100</span>
 </div>
 
-<div class="rating_goal-rating-value">
+<div layout="row" layout-align="center start" class="md-title rating_goal-rating-value">
   {{#if value}}
     Your Rating: {{value}}
   {{else}}
@@ -19,16 +23,18 @@
   </p>
 </div>
 
+<div layout="row" flex>
+  {{paper-input
+    textarea=true
+    flex=100
+    class="rating_goal-text_input"
+    value=review
+    onChange=(action (mut review))
+    label='Enter your narrative feedback'}}
+</div>
+
 <p class="rating_goal-rating-subtitle md-body-1">
   Please provide narrative feedback on how {{engagement.coachee.name}} is progressing toward this goal.
 </p>
-
-{{paper-input
-textarea=true
-flex=100
-class="rating_goal-text_input"
-value=review
-onChange=(action (mut review))
-label='Enter your narrative feedback'}}
 
 {{yield}}
