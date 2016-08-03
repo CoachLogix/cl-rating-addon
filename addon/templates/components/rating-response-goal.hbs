@@ -1,9 +1,17 @@
-<span class="md-subhead">
-  {{model.competency.name}}: {{model.name}}
-</span>
+{{#paper-card-content}}
 
-<div class="rating_goal-rating-container">
-  {{rating-response-goal-rating engagement=engagement value=ratingValue review=ratingReview}}
-</div>
+  <span class="md-caption">{{model.competency.name}}</span><br>
+  <span class="md-title">{{model.name}}</span>
+{{/paper-card-content}}
 
-{{yield}}
+{{paper-divider}}
+
+{{#paper-card-content}}
+<br><br>
+
+  <div class="rating_goal-rating-container">
+    {{rating-response-goal-rating engagement=engagement value=ratingValue review=ratingReview}}
+  </div>
+
+  {{yield}}
+{{/paper-card-content}}

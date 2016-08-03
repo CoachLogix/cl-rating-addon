@@ -1,27 +1,24 @@
 {{!-- {{x-slider class="slider" min=0 max=100 step=1 value=value}} --}}
 
-{{paper-slider flex=true discrete=true value=value step='1' min='0' max='100'}}
-
-<div layout="row" flex>
-  <span class="md-body-2">0</span>
-  <span flex></span>
-  <span class="md-body-2">100</span>
+<div class="rating_goal-rating-subtitle">
+  <p class="md-body-1">
+    Please provide a rating to indicate how {{engagement.coachee.name}} is progressing toward this goal.
+  </p>
 </div>
 
-<div layout="row" layout-align="center start" class="md-title rating_goal-rating-value">
+{{rating-five-point-scale flex=true discrete=true value=value step='1' min='0' max='100'}}
+
+<div layout="row" layout-align="center start" class="md-caption rating_goal-rating-value">
   {{#if value}}
-    Your Rating: {{value}}
+    Your Rating = {{value}}%
   {{else}}
     Not yet rated
   {{/if}}
 </div>
 
-<div class="rating_goal-rating-subtitle">
-  <p class="md-body-1">
-    Please provide a rating of 0 to 100 indicating how {{engagement.coachee.name}} is progressing toward this goal. 0
-    indicates no progress toward this goal whereas 100 indicates no further work is needed.
-  </p>
-</div>
+<br>
+
+<p class="rating_goal-rating-subtitle md-body-1">Please explain the rationale behind your rating and provide feedback below.</p>
 
 <div layout="row" flex>
   {{paper-input
@@ -33,8 +30,5 @@
     label='Enter your comments'}}
 </div>
 
-<p class="rating_goal-rating-subtitle md-body-1">
-  Please provide comments on how {{engagement.coachee.name}} is progressing toward this goal.
-</p>
 
 {{yield}}
