@@ -2,7 +2,7 @@
 
 {{#paper-card}}
   <md-card-title>
-    <span class="md-title">Please provide goal feedback</span>
+    <span class="md-title">Goal Feedback Form</span>
   </md-card-title>
 
   {{paper-divider}}
@@ -22,15 +22,9 @@
 
   {{paper-divider}}
 
-  {{#paper-card-content}}
-    {{#paper-list}}
-      {{#each goals as |goal|}}
-        {{rating-response-goal model=goal engagement=engagement registerAction='registerGoalComponent'}}
-      {{/each}}
-    {{/paper-list}}
-  {{/paper-card-content}}
-
-  {{paper-divider}}
+  {{#each goals as |goal|}}
+    {{rating-response-goal model=goal engagement=engagement registerAction='registerGoalComponent'}}
+  {{/each}}
 
   {{#paper-card-content}}
     <div layout="row" layout-align="end center">
