@@ -1,0 +1,34 @@
+{{!-- {{x-slider class="slider" min=0 max=100 step=1 value=value}} --}}
+
+<div class="rating_goal-rating-subtitle">
+  <p class="md-body-1">
+    Please provide a rating to indicate how {{engagement.coachee.name}} is progressing toward this goal.
+  </p>
+</div>
+
+{{rating-five-point-scale flex=true discrete=true value=value step='1' min='0' max='100'}}
+
+<div layout="row" layout-align="center start" class="md-caption rating_goal-rating-value">
+  {{#if value}}
+    Your Rating = {{value}}%
+  {{else}}
+    Not yet rated
+  {{/if}}
+</div>
+
+<br>
+
+<p class="rating_goal-rating-subtitle md-body-1">Please explain the rationale behind your rating and provide feedback below.</p>
+
+<div layout="row" flex>
+  {{paper-input
+    textarea=true
+    flex=100
+    class="rating_goal-text_input"
+    value=review
+    onChange=(action (mut review))
+    label='Enter your comments'}}
+</div>
+
+
+{{yield}}

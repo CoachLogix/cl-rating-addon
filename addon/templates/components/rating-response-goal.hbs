@@ -1,15 +1,17 @@
-<span class="rating_goal-prompt">
-  {{model.competency.name}} : {{model.name}}
-</span>
+{{#paper-card-content}}
 
-<div class="rating_goal-rating-container">
-  {{#if model.isQualitative}}
-    {{rating-response-goal-qualitative engagement=engagement value=ratingValue}}
-  {{/if}}
+  <span class="md-caption">{{model.competency.name}}</span><br>
+  <span class="md-title">{{model.name}}</span>
+{{/paper-card-content}}
 
-  {{#if model.isQuantitative}}
-    {{rating-response-goal-quantitative engagement=engagement value=ratingValue}}
-  {{/if}}
-</div>
+{{paper-divider}}
 
-{{yield}}
+{{#paper-card-content}}
+<br><br>
+
+  <div class="rating_goal-rating-container">
+    {{rating-response-goal-rating engagement=engagement value=ratingValue review=ratingReview}}
+  </div>
+
+  {{yield}}
+{{/paper-card-content}}
