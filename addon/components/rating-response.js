@@ -8,6 +8,7 @@ export default Ember.Component.extend({
 
   ajax: Ember.inject.service(),
   ajaxPending: false,
+  errors: Ember.A(),
 
   engagement: Ember.computed.alias('model.actionObject.engagement'),
   goals: Ember.computed.alias('model.actionObject.goals'),
@@ -26,6 +27,10 @@ export default Ember.Component.extend({
       goalRatingHash.id = goalComponent.get('model.id');
       goalRatingHash.answer = goalComponent.get('ratingValue');
       goalRatingHash.review = goalComponent.get('ratingReview');
+
+      if (!goalRatingHash.review) {
+        return;
+      }
 
       goalRatingsArray.pushObject(goalRatingHash);
     });
@@ -46,13 +51,20 @@ export default Ember.Component.extend({
     submit: function() {
       // gather responses, build payload
       let ajax = this.get('ajax'),
+          payload,
           component = this,
           endpoint = this.get('apiEndpoint'),
-          responses = this.gatherResponses(),
+          responses = this.gatherResponses();
+
+      if (!Ember.isEmpty(responses)) {
           payload = {
             disposition: 'respond',
             responses: responses
           };
+      } else {
+        this.set('errors', ['Unable to send rating. Feedback comments are required. Please add feedback and try again.']);
+        return;
+      }
 
       component.set('ajaxPending', true);
 
