@@ -27,6 +27,15 @@
   {{/each}}
 
   {{#paper-card-content}}
+    <div layout="row" layout-align="center center">
+      {{#if errors}}
+        {{#each errors as |error|}}
+        <p class="md-body-1">
+          {{error}}
+        </p>
+        {{/each}}
+      {{/if}}
+    </div>
     <div layout="row" layout-align="end center">
       {{#paper-button raised=true primary=true onClick=(action 'submit')}}
         Send feedback
