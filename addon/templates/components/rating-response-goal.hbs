@@ -1,14 +1,12 @@
 {{#paper-card-content}}
-
   <span class="md-caption">{{model.competency.name}}</span><br>
-  <span class="md-title">{{model.name}}</span>
+  <span>{{model.name}}</span>
 {{/paper-card-content}}
 
 {{paper-divider}}
 
 {{#paper-card-content}}
-<br><br>
-
+  <span class="md-caption">Rating</span><br>
   <div class="rating_goal-rating-container">
     {{rating-response-goal-rating engagement=engagement value=ratingValue review=ratingReview}}
   </div>
