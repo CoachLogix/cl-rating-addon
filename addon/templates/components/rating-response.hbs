@@ -7,7 +7,7 @@
 
   {{paper-divider}}
 
-  {{#paper-card-content}}
+  {{#paper-list}}
     {{#paper-item class="md-2-line"}}
       {{#if engagement.coachee.thumbImg}}
         <img class="md-avatar" src="{{engagement.coachee.thumbImg}}">
@@ -18,15 +18,13 @@
         <h4 class="list_item-subtitle">Coached by {{engagement.coach.name}}</h4>
       </div>
     {{/paper-item}}
-  {{/paper-card-content}}
 
-  {{paper-divider}}
+    {{paper-divider}}
 
-  {{#each goals as |goal|}}
-    {{rating-response-goal model=goal engagement=engagement registerAction='registerGoalComponent'}}
-  {{/each}}
+    {{#each goals as |goal|}}
+      {{rating-response-goal model=goal engagement=engagement registerAction="registerGoalComponent"}}
+    {{/each}}
 
-  {{#paper-card-content}}
     <div layout="row" layout-align="center center">
       {{#if errors}}
         {{#each errors as |error|}}
@@ -36,11 +34,12 @@
         {{/each}}
       {{/if}}
     </div>
+
     <div layout="row" layout-align="end center">
-      {{#paper-button raised=true primary=true onClick=(action 'submit')}}
+      {{#paper-button raised=true primary=true onClick=(action "submit")}}
         Send feedback
       {{/paper-button}}
     </div>
-  {{/paper-card-content}}
+  {{/paper-list}}
 
 {{/paper-card}}

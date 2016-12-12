@@ -1,11 +1,11 @@
-
 <div class="rating_goal-rating-subtitle">
-  <p class="md-body-1">
-    Please provide a rating to indicate how {{engagement.coachee.name}} is progressing toward this goal.
+  <p>
+    Please provide a rating to indicate how {{engagement.coachee.name}}
+    is progressing toward this goal.
   </p>
 </div>
 
-{{rating-five-point-scale flex=true discrete=true value=value step='1' min='0' max='100'}}
+{{rating-five-point-scale flex=true discrete=true value=value step="1" min="0" max="100"}}
 
 <div layout="row" layout-align="center start" class="md-caption rating_goal-rating-value">
   {{#if value}}
@@ -17,7 +17,9 @@
 
 <br>
 
-<p class="rating_goal-rating-subtitle md-body-1">Please explain the rationale behind your rating and provide feedback below.</p>
+<p class="rating_goal-rating-subtitle">
+  Please explain the rationale behind your rating and provide feedback below.
+</p>
 
 <div layout="row" flex>
   {{paper-input
@@ -28,8 +30,7 @@
     onChange=(action (mut review))
     required=true
     errorMessages=(hash required="Feedback comments are required")
-    label='Enter your comments'}}
+    placeholder="Enter your comments*"}}
 </div>
-
 
 {{yield}}
