@@ -5,9 +5,9 @@
   </p>
 </div>
 
-{{rating-five-point-scale flex=true discrete=true value=value step="1" min="0" max="100"}}
+{{rating-five-point-scale flex=true discrete=true value=value step=1 min=0 max=100}}
 
-<div layout="row" layout-align="center start" class="md-caption rating_goal-rating-value">
+<div class="md-caption rating_goal-rating-value layout-row layout-align-center-start">
   {{#if value}}
     Your Rating = {{value}}%
   {{else}}
@@ -21,11 +21,10 @@
   Please explain the rationale behind your rating and provide feedback below.
 </p>
 
-<div layout="row" flex>
+<div class="layout-row flex">
   {{paper-input
     textarea=true
-    flex=100
-    class="rating_goal-text_input"
+    class="rating_goal-text_input flex-100"
     value=review
     onChange=(action (mut review))
     required=true

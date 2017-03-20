@@ -5,12 +5,12 @@ export default Ember.Component.extend({
   ratingValue: null,
   ratingReview: null,
 
-  layout: layout,
+  layout,
 
   classNames: ['rating_response-goal'],
 
-  init: function() {
-    this._super();
+  init() {
+    this._super(...arguments);
     this.sendAction('registerAction', this);
   },
 });

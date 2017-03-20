@@ -1,8 +1,8 @@
-<div layout="row" layout-align="center center" flex="100">
+<div class="layout-row layout-align-center-center flex-100">
   <div>No improvement&nbsp;&nbsp;</div>
   <div class="flex layout-column">
     {{paper-slider
-      flex=flex
+      class=(if flex "flex" "")
       warn=warn
       discrete=discrete
       value=value
